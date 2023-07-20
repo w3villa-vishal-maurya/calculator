@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+
+        .container{
+            width: 300px;
+            height: 400px;
+            background-color: rgb(183, 240, 240);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px gray;
+        }
+
+        .display{
+            /* position: absolute; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .digital{
+            width: 290px;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        .board{
+            padding-top: 10px;
+        }
+
+
+        .bar{
+            display: flex;
+            gap: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 150px;
+            border: none;
+            font-size: 20px;
+            background-color: white;
+        }
+
+        .btn:hover{
+            box-shadow: 2px 2px 2px rgb(138, 135, 135);
+        }
+
+        .btn:active{
+            box-shadow: 2px 2px 2px rgb(243, 181, 181);
+        }
+
+        .spc_btn{
+            background-color: rgb(242, 242, 242);;
+        }
+
+        .eql_btn{
+            background-color: orangered;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <input class="digital" type="number" value="0">
+        </div>
+
+        <div class="board">
+            <div class="bar">
+                <button class="btn spc_btn" >C</button>
+                <button class="btn spc_btn" >%</button>
+                <button class="btn spc_btn" >i</button>
+                <button class="btn spc_btn" >/</button>
+            </div>
+            <div class="bar">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn spc_btn">*</button>
+            </div>
+            <div class="bar">
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn spc_btn">-</button>
+            </div>
+            <div class="bar">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn spc_btn">+</button>
+            </div>
+            <div class="bar">
+                <button class="btn">00</button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button class="btn eql_btn">=</button>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
