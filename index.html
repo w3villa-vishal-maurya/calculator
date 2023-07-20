@@ -76,47 +76,50 @@
             background-color: orangered;
             color: white;
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="display">
-            <input class="digital" type="number" value="0">
+            <input id="digital_input" class="digital" type="text" value="" >
         </div>
 
-        <div class="board">
+        <div class="board" id="my_button">
             <div class="bar">
-                <button class="btn spc_btn" >C</button>
-                <button class="btn spc_btn" >%</button>
-                <button class="btn spc_btn" >i</button>
+                <button class="btn spc_btn" data-action="cancle">C</button>
+                <button class="btn spc_btn" data-action="devide">%</button>
+                <button class="btn spc_btn" data-action="delete">i</button>
                 <button class="btn spc_btn" >/</button>
             </div>
             <div class="bar">
                 <button class="btn">7</button>
                 <button class="btn">8</button>
                 <button class="btn">9</button>
-                <button class="btn spc_btn">*</button>
+                <button class="btn spc_btn" data-action="multiply">*</button>
             </div>
             <div class="bar">
                 <button class="btn">4</button>
                 <button class="btn">5</button>
                 <button class="btn">6</button>
-                <button class="btn spc_btn">-</button>
+                <button class="btn spc_btn" data-action="subtract">-</button>
             </div>
             <div class="bar">
                 <button class="btn">1</button>
                 <button class="btn">2</button>
                 <button class="btn">3</button>
-                <button class="btn spc_btn">+</button>
+                <button class="btn spc_btn" data-action="addition">+</button>
             </div>
             <div class="bar">
                 <button class="btn">00</button>
                 <button class="btn">0</button>
                 <button class="btn">.</button>
-                <button class="btn eql_btn">=</button>
+                <button class="btn eql_btn" data-action="equal">=</button>
             </div>
            
         </div>
     </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>
