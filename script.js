@@ -16,21 +16,31 @@ function handleKey(e) {
             display.value = 0;
         }
         else if(action == "equal"){
+            
             try{
                 display.value = eval(display.value);
             }
             catch{
+                check = true;
                 display.value = "error"; 
             }
         }
         else if(action == "delete"){
-            display.value = str.slice(0, str.length-1);
+            display.value = display.value.slice(0, display.value.length-1);
+            console.log("One value deleted from last.")
+            // if(display.value != "0"){
+            //     display.value = str.slice(0, str.length-1);
+            // }
         }
         else{
-            if(!action && display.value == "0" ){
+    
+            if((!action && display.value == "0") || (check && !action)){
                 display.value = e.target.innerText;
+                if(check){
+                    check = false;
+                }
             }
-            else if(action && display.value == "0" ){
+            else if((action && display.value == "0" )|| (check && action)){
                 display.value = 0;
             }
             else if(action && isOperator(str[str.length-1])){
