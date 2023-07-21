@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -86,7 +86,7 @@
 <body>
     <div class="container">
         <div class="display">
-            <input id="digital_input" class="digital" type="text" value="0" >
+            <input id="digital_input" class="digital" type="text" value="" >
         </div>
 
         <div class="board" id="my_button">
@@ -117,7 +117,7 @@
             <div class="bar">
                 <button class="btn">00</button>
                 <button class="btn">0</button>
-                <button class="btn">.</button>
+                <button class="btn" data-action="dot">.</button>
                 <button class="btn eql_btn" data-action="equal">=</button>
             </div>
            
