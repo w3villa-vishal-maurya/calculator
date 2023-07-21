@@ -1,93 +1,58 @@
 let btn = document.getElementById("my_button");
+let display = document.getElementById("digital_input");
 
-let num1 = "";
-let num2 = "";
+
 let operator = "";
 let check = false;
 
 btn.addEventListener('click', handleKey)
+
 function handleKey(e) {
     if (e.target.matches("button")) {
-        // console.log(e.target.innerText);
-
-
-        const action = e.target.dataset.action;
-        if (!action) {
-            if (!check) {
-                num1 += e.target.innerText;
-                // console.log("Hello answer is " + num1);
-            }
-            else {
-                num2 += e.target.innerText;
-            }
-            document.getElementById("digital_input").value += e.target.innerText;
-            console.log(action);
+        let action = e.target.dataset.action;
+        let str = display.value;
+        
+        if (action == "cancle") {
+            display.value = 0;
         }
-        else {
-            check = true;
-
-            if (action == "addition") {
-                operator = action;
-                document.getElementById("digital_input").value += "+";
+        else if(action == "equal"){
+            try{
+                display.value = eval(display.value);
             }
-            if (action == "subtract") {
-                operator = action;
-                document.getElementById("digital_input").value += "-";
+            catch{
+                display.value = "error"; 
             }
-            if (action == "multiply") {
-                operator = action;
-                document.getElementById("digital_input").value += "*";
+        }
+        else if(action == "delete"){
+            display.value = str.slice(0, str.length-1);
+        }
+        else{
+            if(!action && display.value == "0" ){
+                display.value = e.target.innerText;
             }
-            if (action == "devide") {
-                operator = action;
-                document.getElementById("digital_input").value += "/";
+            else if(action && display.value == "0" ){
+                display.value = 0;
             }
-
-
-            if (action == "equal") {
-                const result = calculate(num1, num2, operator);
-
-                document.getElementById("digital_input").value = result;
+            else if(action && isOperator(str[str.length-1])){
+                display.value = str.slice(0, str.length-1);
+                display.value += e.target.innerText;
             }
-
-            if(action == "cancle"){
-                num1 = "";
-                num2 = "";
-                check = false;
-                operator = "";
-                document.getElementById("digital_input").value = "";
+            else{
+                display.value += e.target.innerText;
             }
+            
         }
     }
 }
 
-function calculate(num1, num2, operator){
-    console.log("num1 is " + num1);
-    console.log("num2 is " + num2);
-    console.log("operator is " + operator);
-
-    if(!operator){
-        return "";
+function isOperator(opr){
+    if(opr == "+" || opr == "-" || opr == "/" || opr == "*"){
+        return true;
     }
-
-    let answer;
-    if(operator == "devide"){
-        answer = Number(num1) / Number(num2);
+    else{
+        return false;
     }
-
-    if(operator == "multiply"){
-        answer = Number(num1) * Number(num2);
-    }
-
-    if(operator == "subtract"){
-        answer = Number(num1) - Number(num2);
-    }
-
-    if(operator == "addition"){
-        answer = Number(num1) + Number(num2);
-    }
-
-    // console.log("Hello ans is " + answer);
-
-    return answer;
 }
+
+
+
